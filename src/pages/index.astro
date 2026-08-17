@@ -1,0 +1,302 @@
+---
+import {
+  ArrowDown,
+  ArrowRight,
+  BriefcaseBusiness,
+  CircleCheckBig,
+  Cloud,
+  CodeXml,
+  Database,
+  Download,
+  ExternalLink,
+  GitBranch,
+  GraduationCap,
+  ContactRound,
+  Mail,
+  Menu,
+  ServerCog,
+  X,
+} from "@lucide/astro";
+import Layout from "../layouts/Layout.astro";
+import { projects } from "../data/projects";
+
+const navItems = [
+  ["Sobre mí", "#sobre-mi"],
+  ["Proyectos", "#proyectos"],
+  ["Experiencia", "#experiencia"],
+  ["Habilidades", "#habilidades"],
+  ["Contacto", "#contacto"],
+];
+
+const skillGroups = [
+  { icon: ServerCog, title: "Backend", items: ["Python", "FastAPI", "APIs REST"] },
+  { icon: Database, title: "Datos", items: ["SQL", "PostgreSQL", "BigQuery", "Airflow", "Pandas", "EDA"] },
+  { icon: Cloud, title: "Cloud y herramientas", items: ["Cloud Storage", "Docker", "Git / GitHub", "Linux"] },
+  { icon: CodeXml, title: "Interfaces y visualización", items: ["PySide6", "Matplotlib", "Power BI", "HTML / CSS"] },
+];
+---
+
+<Layout
+  title="Bryan Jiménez | Backend & Data Engineering"
+  description="Portafolio de Bryan Jiménez: desarrollo backend, automatización, procesos ETL e ingeniería de datos con Python, FastAPI, Airflow y BigQuery."
+>
+  <header class="site-header" data-header>
+    <nav class="shell nav-wrap" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span>BJ</span>
+        <span class="brand-copy">Bryan Jiménez</span>
+      </a>
+      <div class="desktop-nav">
+        {navItems.map(([label, href]) => <a href={href}>{label}</a>)}
+      </div>
+      <a class="button button-small desktop-cv" href="/CV-Bryan-Jimenez.pdf" download>
+        <Download size={16} aria-hidden="true" /> CV
+      </a>
+      <button class="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-button>
+        <Menu class="menu-open" size={22} aria-hidden="true" />
+        <X class="menu-close" size={22} aria-hidden="true" />
+      </button>
+    </nav>
+    <div class="mobile-nav" data-mobile-nav>
+      {navItems.map(([label, href]) => <a href={href}>{label}</a>)}
+      <a href="/CV-Bryan-Jimenez.pdf" download>Descargar CV</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> Disponible para nuevos desafíos</p>
+        <h1>
+          Construyo soluciones backend y convierto datos en
+          <span>procesos útiles.</span>
+        </h1>
+        <p class="hero-lead">
+          Soy <strong>Bryan Jonathan Jiménez Huamani</strong>, Ingeniero Civil en Computación enfocado en APIs,
+          automatización, procesos ETL y soluciones cloud.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#proyectos">Ver proyectos <ArrowDown size={18} aria-hidden="true" /></a>
+          <a class="button button-secondary" href="/CV-Bryan-Jimenez.pdf" download>
+            <Download size={18} aria-hidden="true" /> Descargar CV
+          </a>
+        </div>
+        <div class="social-row" aria-label="Perfiles profesionales">
+          <a href="mailto:jimenezbryan871@gmail.com" aria-label="Enviar correo a Bryan"><Mail size={19} /></a>
+          <a href="https://www.linkedin.com/in/bryan-jimenez-huamani" target="_blank" rel="noreferrer" aria-label="LinkedIn de Bryan"><ContactRound size={19} /></a>
+          <a href="https://github.com/BryanJimenez871" target="_blank" rel="noreferrer" aria-label="GitHub de Bryan"><GitBranch size={19} /></a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Presentación de Bryan Jiménez">
+        <div class="portrait-frame">
+          <img src="/profile.webp" width="520" height="520" alt="Bryan Jonathan Jiménez Huamani" fetchpriority="high" />
+          <span class="portrait-grid" aria-hidden="true"></span>
+        </div>
+        <div class="floating-card code-card" aria-hidden="true">
+          <span>perfil.py</span>
+          <code><b>focus</b> = [<i>"backend"</i>, <i>"data"</i>]</code>
+          <code><b>building</b> = <i>"soluciones escalables"</i></code>
+        </div>
+        <div class="floating-card location-card">
+          <span class="status-dot"></span>
+          Santiago, Chile
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 / Sobre mí</p>
+        <h2>Ingeniería con foco en resultados.</h2>
+      </div>
+      <div class="about-grid reveal">
+        <p class="about-lead">
+          Me interesa construir sistemas que conecten software, datos y automatización de una forma clara y mantenible.
+        </p>
+        <div class="about-copy">
+          <p>
+            Tengo experiencia desarrollando aplicaciones backend, procesos ETL, consultas SQL y soluciones que integran servicios cloud. Disfruto transformar tareas manuales en flujos reproducibles y bien documentados.
+          </p>
+          <p>
+            Trabajo principalmente con Python y tecnologías de datos. Mantengo una actitud de aprendizaje continuo y busco entender el problema antes de elegir las herramientas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section projects-section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / Proyectos seleccionados</p>
+          <h2>De la idea al flujo completo.</h2>
+          <p>Dos proyectos que resumen mi forma de trabajar: comprender el problema, construir la solución y preparar los datos para que generen valor.</p>
+        </div>
+
+        <article class="project-card featured reveal" aria-labelledby="habitos-title">
+          <div class="project-gallery">
+            <figure class="gallery-main">
+              <img src="/projects/habitos-interface.webp" alt="Interfaz de la aplicación Hábitos Personales" width="920" height="590" loading="lazy" />
+            </figure>
+            <figure>
+              <img src="/projects/habitos-graph.webp" alt="Visualización de hábitos personales" width="460" height="290" loading="lazy" />
+            </figure>
+            <figure>
+              <img src="/projects/habitos-api.webp" alt="Documentación de la API de Hábitos Personales" width="460" height="290" loading="lazy" />
+            </figure>
+          </div>
+          <div class="project-content">
+            <p class="eyebrow">{projects[0].eyebrow}</p>
+            <h3 id="habitos-title">{projects[0].title}</h3>
+            <p class="project-summary">{projects[0].summary}</p>
+            <div class="case-grid">
+              <div><span>Contexto</span><p>{projects[0].context}</p></div>
+              <div><span>Mi aporte</span><p>{projects[0].contribution}</p></div>
+              <div><span>Resultado</span><p>{projects[0].result}</p></div>
+            </div>
+            <div class="architecture" aria-label="Arquitectura del proyecto Hábitos Personales">
+              <span>PySide6</span><ArrowRight size={15} /><span>FastAPI</span><ArrowRight size={15} /><span>PostgreSQL</span><ArrowRight size={15} /><span>Airflow</span><ArrowRight size={15} /><span>BigQuery</span>
+            </div>
+            <ul class="tags" aria-label="Tecnologías utilizadas">
+              {projects[0].technologies.map((technology) => <li>{technology}</li>)}
+            </ul>
+            <div class="project-links">
+              {projects[0].links.map((link) => (
+                <a href={link.href} target="_blank" rel="noreferrer"><GitBranch size={17} /> {link.label} <ExternalLink size={14} /></a>
+              ))}
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card fastcheck reveal" aria-labelledby="fastcheck-title">
+          <div class="fastcheck-visual" aria-label="Flujo de procesamiento de FastCheck">
+            <div class="flow-node"><span>01</span><strong>Scraping</strong><small>+2.000 imágenes</small></div>
+            <ArrowRight size={22} aria-hidden="true" />
+            <div class="flow-node accent"><span>02</span><strong>IA</strong><small>Clasificación + texto</small></div>
+            <ArrowRight size={22} aria-hidden="true" />
+            <div class="flow-node"><span>03</span><strong>ETL</strong><small>Limpieza + validación</small></div>
+            <div class="data-lines" aria-hidden="true"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-title-row">
+              <div>
+                <p class="eyebrow">{projects[1].eyebrow}</p>
+                <h3 id="fastcheck-title">{projects[1].title}</h3>
+              </div>
+              <span class="private-label">Código no público</span>
+            </div>
+            <p class="project-summary">{projects[1].summary}</p>
+            <div class="case-grid">
+              <div><span>Contexto</span><p>{projects[1].context}</p></div>
+              <div><span>Mi aporte</span><p>{projects[1].contribution}</p></div>
+              <div><span>Resultado</span><p>{projects[1].result}</p></div>
+            </div>
+            <ul class="tags" aria-label="Tecnologías utilizadas">
+              {projects[1].technologies.map((technology) => <li>{technology}</li>)}
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 / Experiencia</p>
+        <h2>Trabajo aplicado a datos reales.</h2>
+      </div>
+      <article class="experience-card reveal">
+        <div class="experience-meta">
+          <div class="company-mark"><BriefcaseBusiness size={24} /></div>
+          <div><h3>Entel Digital</h3><p>Practicante profesional</p></div>
+          <time>Ene 2025 — Mar 2025</time>
+        </div>
+        <ul>
+          <li><CircleCheckBig size={18} /> Automaticé procesos ETL desde Cloud Storage hacia BigQuery utilizando Scala.</li>
+          <li><CircleCheckBig size={18} /> Consulté y gestioné información mediante SQL para apoyar análisis y toma de decisiones.</li>
+          <li><CircleCheckBig size={18} /> Documenté flujos, dependencias y funciones en Confluence para facilitar la continuidad del proyecto.</li>
+          <li><CircleCheckBig size={18} /> Colaboré bajo metodología Scrum en la planificación y seguimiento de tareas.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="habilidades" class="section skills-section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / Habilidades</p>
+          <h2>Herramientas para construir y conectar.</h2>
+        </div>
+        <div class="skills-grid">
+          {skillGroups.map(({ icon: Icon, title, items }) => (
+            <article class="skill-card reveal">
+              <Icon size={24} aria-hidden="true" />
+              <h3>{title}</h3>
+              <ul>{items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell education-section">
+      <div class="education-card reveal">
+        <GraduationCap size={26} aria-hidden="true" />
+        <div><p class="eyebrow">Educación</p><h3>Ingeniería Civil en Computación, mención Informática</h3><p>Universidad Tecnológica Metropolitana · 2019 — 2025</p></div>
+      </div>
+      <div class="certifications reveal">
+        <p class="eyebrow">Certificaciones destacadas</p>
+        <ul>
+          <li><strong>Cloud Foundations</strong><span>AWS Academy · 2026</span></li>
+          <li><strong>Intermediate SQL</strong><span>DataCamp · 2026</span></li>
+          <li><strong>Red Hat System Administration I</strong><span>Red Hat · 2025</span></li>
+          <li><strong>Introduction to Cloud</strong><span>AWS Academy · 2024</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+      <div class="shell contact-inner reveal">
+        <p class="eyebrow">05 / Contacto</p>
+        <h2>¿Construimos algo útil?</h2>
+        <p>Estoy abierto a oportunidades en desarrollo backend, automatización e ingeniería de datos.</p>
+        <div class="contact-actions">
+          <a class="button" href="mailto:jimenezbryan871@gmail.com"><Mail size={18} /> Escríbeme</a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/bryan-jimenez-huamani" target="_blank" rel="noreferrer"><ContactRound size={18} /> LinkedIn</a>
+          <a class="button button-secondary" href="https://github.com/BryanJimenez871" target="_blank" rel="noreferrer"><GitBranch size={18} /> GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>Diseñado y construido por Bryan Jiménez.</p>
+    <p>© {new Date().getFullYear()}</p>
+  </footer>
+
+  <script>
+    const header = document.querySelector("[data-header]");
+    const button = document.querySelector("[data-menu-button]");
+    const menu = document.querySelector("[data-mobile-nav]");
+
+    const closeMenu = () => {
+      button?.setAttribute("aria-expanded", "false");
+      menu?.classList.remove("is-open");
+    };
+
+    button?.addEventListener("click", () => {
+      const open = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!open));
+      menu?.classList.toggle("is-open", !open);
+    });
+    menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+    const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 24);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")),
+      { threshold: 0.12 },
+    );
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</Layout>
