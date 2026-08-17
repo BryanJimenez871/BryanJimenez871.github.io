@@ -4,17 +4,12 @@ import {
   ArrowRight,
   BriefcaseBusiness,
   CircleCheckBig,
-  Cloud,
-  CodeXml,
-  Database,
   Download,
   ExternalLink,
   GitBranch,
-  GraduationCap,
   ContactRound,
   Mail,
   Menu,
-  ServerCog,
   X,
 } from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
@@ -24,15 +19,7 @@ const navItems = [
   ["Sobre mí", "#sobre-mi"],
   ["Proyectos", "#proyectos"],
   ["Experiencia", "#experiencia"],
-  ["Habilidades", "#habilidades"],
-  ["Contacto", "#contacto"],
-];
-
-const skillGroups = [
-  { icon: ServerCog, title: "Backend", items: ["Python", "FastAPI", "APIs REST"] },
-  { icon: Database, title: "Datos", items: ["SQL", "PostgreSQL", "BigQuery", "Airflow", "Pandas", "EDA"] },
-  { icon: Cloud, title: "Cloud y herramientas", items: ["Cloud Storage", "Docker", "Git / GitHub", "Linux"] },
-  { icon: CodeXml, title: "Interfaces y visualización", items: ["PySide6", "Matplotlib", "Power BI", "HTML / CSS"] },
+  ["Redes", "#redes"],
 ];
 ---
 
@@ -92,11 +79,6 @@ const skillGroups = [
         <div class="portrait-frame">
           <img src="/profile.webp" width="520" height="520" alt="Bryan Jonathan Jiménez Huamani" fetchpriority="high" />
           <span class="portrait-grid" aria-hidden="true"></span>
-        </div>
-        <div class="floating-card code-card" aria-hidden="true">
-          <span>perfil.py</span>
-          <code><b>focus</b> = [<i>"backend"</i>, <i>"data"</i>]</code>
-          <code><b>building</b> = <i>"soluciones escalables"</i></code>
         </div>
         <div class="floating-card location-card">
           <span class="status-dot"></span>
@@ -168,15 +150,7 @@ const skillGroups = [
           </div>
         </article>
 
-        <article class="project-card fastcheck reveal" aria-labelledby="fastcheck-title">
-          <div class="fastcheck-visual" aria-label="Flujo de procesamiento de FastCheck">
-            <div class="flow-node"><span>01</span><strong>Scraping</strong><small>+2.000 imágenes</small></div>
-            <ArrowRight size={22} aria-hidden="true" />
-            <div class="flow-node accent"><span>02</span><strong>IA</strong><small>Clasificación + texto</small></div>
-            <ArrowRight size={22} aria-hidden="true" />
-            <div class="flow-node"><span>03</span><strong>ETL</strong><small>Limpieza + validación</small></div>
-            <div class="data-lines" aria-hidden="true"></div>
-          </div>
+        <article class="project-card featured reveal" aria-labelledby="fastcheck-title">
           <div class="project-content">
             <div class="project-title-row">
               <div>
@@ -190,6 +164,9 @@ const skillGroups = [
               <div><span>Contexto</span><p>{projects[1].context}</p></div>
               <div><span>Mi aporte</span><p>{projects[1].contribution}</p></div>
               <div><span>Resultado</span><p>{projects[1].result}</p></div>
+            </div>
+            <div class="architecture" aria-label="Arquitectura del proyecto FastCheck">
+              <span>Web Scraping</span><ArrowRight size={15} /><span>API de ChatGPT</span><ArrowRight size={15} /><span>ETL</span><ArrowRight size={15} /><span>Dataset validado</span>
             </div>
             <ul class="tags" aria-label="Tecnologías utilizadas">
               {projects[1].technologies.map((technology) => <li>{technology}</li>)}
@@ -219,50 +196,11 @@ const skillGroups = [
       </article>
     </section>
 
-    <section id="habilidades" class="section skills-section">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">04 / Habilidades</p>
-          <h2>Herramientas para construir y conectar.</h2>
-        </div>
-        <div class="skills-grid">
-          {skillGroups.map(({ icon: Icon, title, items }) => (
-            <article class="skill-card reveal">
-              <Icon size={24} aria-hidden="true" />
-              <h3>{title}</h3>
-              <ul>{items.map((item) => <li>{item}</li>)}</ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell education-section">
-      <div class="education-card reveal">
-        <GraduationCap size={26} aria-hidden="true" />
-        <div><p class="eyebrow">Educación</p><h3>Ingeniería Civil en Computación, mención Informática</h3><p>Universidad Tecnológica Metropolitana · 2019 — 2025</p></div>
-      </div>
-      <div class="certifications reveal">
-        <p class="eyebrow">Certificaciones destacadas</p>
-        <ul>
-          <li><strong>Cloud Foundations</strong><span>AWS Academy · 2026</span></li>
-          <li><strong>Intermediate SQL</strong><span>DataCamp · 2026</span></li>
-          <li><strong>Red Hat System Administration I</strong><span>Red Hat · 2025</span></li>
-          <li><strong>Introduction to Cloud</strong><span>AWS Academy · 2024</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contacto" class="contact-section">
-      <div class="shell contact-inner reveal">
-        <p class="eyebrow">05 / Contacto</p>
-        <h2>¿Construimos algo útil?</h2>
-        <p>Estoy abierto a oportunidades en desarrollo backend, automatización e ingeniería de datos.</p>
-        <div class="contact-actions">
-          <a class="button" href="mailto:jimenezbryan871@gmail.com"><Mail size={18} /> Escríbeme</a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/bryan-jimenez-huamani" target="_blank" rel="noreferrer"><ContactRound size={18} /> LinkedIn</a>
-          <a class="button button-secondary" href="https://github.com/BryanJimenez871" target="_blank" rel="noreferrer"><GitBranch size={18} /> GitHub</a>
-        </div>
+    <section id="redes" class="social-section" aria-label="Redes profesionales">
+      <div class="shell social-actions reveal">
+        <a class="button button-secondary" href="mailto:jimenezbryan871@gmail.com"><Mail size={18} /> Correo</a>
+        <a class="button button-secondary" href="https://www.linkedin.com/in/bryan-jimenez-huamani" target="_blank" rel="noreferrer"><ContactRound size={18} /> LinkedIn</a>
+        <a class="button button-secondary" href="https://github.com/BryanJimenez871" target="_blank" rel="noreferrer"><GitBranch size={18} /> GitHub</a>
       </div>
     </section>
   </main>
