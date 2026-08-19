@@ -22,11 +22,11 @@ export const projects: Project[] = [
     eyebrow: "Aplicación + API + Data Pipeline",
     title: "Hábitos Personales",
     summary:
-      "Un sistema de escritorio que transforma el seguimiento cotidiano de hábitos en datos consultables y visualizaciones útiles.",
+      "Aplicación de escritorio para registrar hábitos diarios de forma dinámica, mediante una arquitectura de datos completa que conecta la base de datos local con Apache Airflow para automatizar el flujo hacia la nube y Power BI para visualizar y analizar la información.",
     context:
-      "El proyecto comenzó como una aplicación local y evolucionó hacia una arquitectura desacoplada, preparada para centralizar y analizar la información.",
+      "El proyecto comenzó como una aplicación local y evolucionó hacia una arquitectura modular, preparada para centralizar y analizar la información.",
     contribution:
-      "Diseñé el cliente en PySide6, una API REST con FastAPI, la persistencia en PostgreSQL y un pipeline periódico que mueve los registros a BigQuery en formato Parquet.",
+      "Diseñé el cliente en PySide6, una API REST con FastAPI, la base de datos PostgreSQL y un pipeline periódico que mueve los registros a BigQuery en formato Parquet.",
     result:
       "Una solución funcional y reproducible con Docker Compose, capaz de registrar hábitos, exponer los datos mediante una API y automatizar su ingesta para análisis posterior.",
     technologies: [
@@ -54,9 +54,9 @@ export const projects: Project[] = [
   {
     id: "fastcheck",
     eyebrow: "Web scraping + IA + ETL",
-    title: "FastCheck",
+    title: "Scraping y análisis de imágenes con IA",
     summary:
-      "Automatización para convertir imágenes de publicaciones en un dataset limpio, validado y listo para análisis.",
+      "Automatización que recopila imágenes de publicaciones, las clasifica con la API de ChatGPT y, mediante un proceso ETL, las transforma en un dataset limpio, validado y listo para análisis.",
     context:
       "El análisis requería procesar un volumen considerable de imágenes publicadas en distintas redes sociales, una tarea lenta y propensa a errores si se realizaba manualmente.",
     contribution:
