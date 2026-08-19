@@ -1,9 +1,8 @@
 ---
-import { ArrowDown, ArrowRight, Download, ExternalLink, GitBranch, Mail, Menu, X } from "@lucide/astro";
+import { ArrowDown, ArrowRight, ExternalLink, GitBranch, Mail, X } from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
 import { projects } from "../data/projects";
 
-const navItems = [["Proyectos", "#proyectos"], ["Contacto", "#contacto"]];
 const techTools = [
   ["Docker", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"],
   ["Airflow", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg"],
@@ -18,21 +17,13 @@ const techTools = [
 ---
 
 <Layout title="Bryan Jiménez | Backend & Data Engineering" description="Portafolio de Bryan Jiménez: desarrollo backend, automatización, procesos ETL e ingeniería de datos con Python, FastAPI, Airflow y BigQuery.">
-  <header class="site-header" data-header>
-    <nav class="shell nav-wrap" aria-label="Navegación principal">
-      <div class="desktop-nav">{navItems.map(([label, href]) => <a href={href}>{label}</a>)}</div>
-      <button class="menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-button><Menu class="menu-open" size={22} aria-hidden="true" /><X class="menu-close" size={22} aria-hidden="true" /></button>
-    </nav>
-    <div class="mobile-nav" data-mobile-nav>{navItems.map(([label, href]) => <a href={href}>{label}</a>)}<a href="/CV-Bryan-Jimenez.pdf" download>Descargar CV</a></div>
-  </header>
-
   <main id="contenido">
     <section id="inicio" class="hero shell">
       <div class="hero-copy reveal">
         <h1><span>Bryan Jimenez Huamani</span></h1>
         <p class="hero-lead">Soy <strong>Ingeniero Civil en Computación</strong>, enfocado, automatización, base de datos, procesos ETL y soluciones cloud.</p>
         <p class="hero-intent">Me interesa construir sistemas que conecten software, datos y automatización de una forma clara y mantenible.</p>
-        <div class="hero-actions"><a class="button" href="#proyectos">Ver proyectos <ArrowDown size={18} aria-hidden="true" /></a><a class="button button-secondary" href="/CV-Bryan-Jimenez.pdf" download><Download size={18} aria-hidden="true" /> Descargar CV</a></div>
+        <div class="hero-actions"><a class="button" href="#proyectos">Ver proyectos <ArrowDown size={18} aria-hidden="true" /></a></div>
       </div>
       <div class="hero-visual reveal" aria-label="Herramientas tecnológicas de Bryan"><div class="tech-orbit"><span class="orbit-ring orbit-ring-outer" aria-hidden="true"></span><span class="orbit-ring orbit-ring-inner" aria-hidden="true"></span><div class="orbit-core"><img src="/cat-core.png" alt="Gato frente a un computador" width="862" height="538" loading="lazy" /></div>{techTools.map(([name, icon], index) => <div class={`tech-node tech-node-${index + 1}`}><img src={icon} alt={name} width="36" height="36" loading="lazy" /><span>{name}</span></div>)}</div></div>
     </section>
@@ -54,15 +45,11 @@ const techTools = [
   <dialog id="fastcheck-dialog" class="project-dialog" aria-labelledby="fastcheck-dialog-title"><div class="dialog-panel"><button class="dialog-close" type="button" data-close-project aria-label="Cerrar proyecto"><X size={20} /></button><div class="project-content"><p class="eyebrow">{projects[1].eyebrow}</p><h2 id="fastcheck-dialog-title">{projects[1].title}</h2><div class="case-grid"><div><span>Contexto</span><p>{projects[1].context}</p></div><div><span>Mi aporte</span><p>{projects[1].contribution}</p></div><div><span>Resultado</span><p>{projects[1].result}</p></div></div><ul class="tags" aria-label="Tecnologías utilizadas">{projects[1].technologies.map((technology) => <li>{technology}</li>)}</ul><section class="project-media fastcheck-media" aria-label="Evidencias de FastCheck"><div class="media-tabs" role="tablist" aria-label="Etapas de FastCheck"><button id="fastcheck-tab-publicacion" type="button" role="tab" aria-selected="true" aria-controls="fastcheck-panel-publicacion" data-media-tab="fastcheck-panel-publicacion">Publicación</button><button id="fastcheck-tab-metodologia" type="button" role="tab" aria-selected="false" aria-controls="fastcheck-panel-metodologia" data-media-tab="fastcheck-panel-metodologia">Metodología</button><button id="fastcheck-tab-analisis" type="button" role="tab" aria-selected="false" aria-controls="fastcheck-panel-analisis" data-media-tab="fastcheck-panel-analisis">Análisis</button></div><figure id="fastcheck-panel-publicacion" class="media-panel" role="tabpanel" aria-labelledby="fastcheck-tab-publicacion"><img src="/projects/fastcheck-publication.png" alt="Ejemplo de una publicación revisada por el proceso de FastCheck" width="256" height="497" loading="lazy" /><figcaption>Ejemplo del tipo de publicación analizada antes de extraer y validar sus datos.</figcaption></figure><figure id="fastcheck-panel-metodologia" class="media-panel" role="tabpanel" aria-labelledby="fastcheck-tab-metodologia" hidden><img src="/projects/fastcheck-methodology.png" alt="Flujo de scraping, clasificación con IA, validación y carga del dataset de FastCheck" width="1079" height="257" loading="lazy" /><figcaption>Flujo de extracción, clasificación con IA, validación y limpieza para construir el dataset final.</figcaption></figure><figure id="fastcheck-panel-analisis" class="media-panel" role="tabpanel" aria-labelledby="fastcheck-tab-analisis" hidden><img src="/projects/fastcheck-analysis.png" alt="Comparación de métricas textuales entre publicaciones falsas y verdaderas" width="438" height="458" loading="lazy" /><figcaption>Análisis comparativo del dataset: métricas de texto entre contenido falso y verdadero.</figcaption></figure></section></div></div></dialog>
 
   <script>
-    const header = document.querySelector("[data-header]"); const button = document.querySelector("[data-menu-button]"); const menu = document.querySelector("[data-mobile-nav]"); const projectMedia = document.querySelector("#habitos-dialog .project-media"); document.querySelector("#habitos-dialog .project-links")?.before(projectMedia!);
-    const closeMenu = () => { button?.setAttribute("aria-expanded", "false"); menu?.classList.remove("is-open"); };
-    button?.addEventListener("click", () => { const open = button.getAttribute("aria-expanded") === "true"; button.setAttribute("aria-expanded", String(!open)); menu?.classList.toggle("is-open", !open); });
-    menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    const projectMedia = document.querySelector("#habitos-dialog .project-media"); document.querySelector("#habitos-dialog .project-links")?.before(projectMedia!);
     document.querySelectorAll("[data-open-project]").forEach((openButton) => openButton.addEventListener("click", () => document.querySelector<HTMLDialogElement>(`#${openButton.getAttribute("data-open-project")}-dialog`)?.showModal()));
     document.querySelectorAll("[data-close-project]").forEach((closeButton) => closeButton.addEventListener("click", () => closeButton.closest("dialog")?.close()));
     document.querySelectorAll<HTMLElement>(".project-media").forEach((media) => media.querySelectorAll<HTMLButtonElement>("[data-media-tab]").forEach((tab) => tab.addEventListener("click", () => { const panelId = tab.dataset.mediaTab; media.querySelectorAll<HTMLButtonElement>("[data-media-tab]").forEach((item) => item.setAttribute("aria-selected", String(item === tab))); media.querySelectorAll<HTMLElement>(".media-panel").forEach((panel) => { panel.hidden = panel.id !== panelId; }); })));
     document.querySelectorAll<HTMLDialogElement>(".project-dialog").forEach((dialog) => dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); }));
-    const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 24); updateHeader(); window.addEventListener("scroll", updateHeader, { passive: true });
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 }); document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
   </script>
 </Layout>
