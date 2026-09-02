@@ -54,6 +54,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-lead { max-width: 670px; margin: 1.7rem 0 0; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.18rem); }
 .hero-lead strong { color: #d9e8f7; font-weight: 650; }
 .hero-intent { max-width: 670px; margin: .75rem 0 0; color: var(--muted); font-size: clamp(.98rem, 1.45vw, 1.1rem); }
+.hero-recognition { display: inline-flex; align-items: center; margin: 1.1rem 0 0; padding: .42rem .72rem; border: 1px solid rgba(203, 213, 225, .2); border-radius: 999px; background: rgba(148, 163, 184, .12); color: #d8e0ea; font-size: .82rem; }
 .status-dot { display: inline-block; width: .52rem; aspect-ratio: 1; margin-right: .35rem; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 .3rem rgba(74,222,128,.1); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .social-row { display: flex; gap: .65rem; margin-top: 1.5rem; }

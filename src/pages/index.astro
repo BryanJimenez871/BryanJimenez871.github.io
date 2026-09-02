@@ -23,6 +23,7 @@ const techTools = [
         <h1><span>Bryan Jimenez Huamani</span></h1>
         <p class="hero-lead">Soy <strong>Ingeniero Civil en Computación</strong>, enfocado en automatización, base de datos, procesos ETL y soluciones cloud.</p>
         <p class="hero-intent">Me interesa construir sistemas que conecten software, datos y automatización de una forma clara y mantenible.</p>
+        <p class="hero-recognition">Reconocimiento al desempeño · Empleado del mes, Santa Isabel</p>
         <div class="hero-actions"><a class="button" href="#proyectos">Ver proyectos <ArrowDown size={18} aria-hidden="true" /></a></div>
       </div>
       <div class="hero-visual reveal" aria-label="Herramientas tecnológicas de Bryan"><div class="tech-orbit"><span class="orbit-ring orbit-ring-outer" aria-hidden="true"></span><span class="orbit-ring orbit-ring-inner" aria-hidden="true"></span><div class="orbit-core"><img src="/cat-core.png" alt="Gato frente a un computador" width="862" height="538" loading="lazy" /></div>{techTools.map(([name, icon], index) => <div class={`tech-node tech-node-${index + 1}`}><img src={icon} alt={name} width="36" height="36" loading="lazy" /><span>{name}</span></div>)}</div></div>
