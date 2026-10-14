@@ -88,6 +88,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-dialog#fastcheck-dialog .tags { margin-top: 1.75rem; }
 .project-dialog#fastcheck-dialog .project-media { padding: 1.5rem 0 0; }
 .project-dialog#olist-dialog .project-media { padding: 2rem 0 0; }
+.project-dialog#stu-dialog .project-media { padding: 2rem 0 0; }
+.stu-impact { display: grid; gap: 1.1rem; padding: 1.25rem; }.stu-impact > p { margin: 0; color: var(--muted); }.stu-impact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }.stu-impact-grid article { padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: rgba(66,217,255,.05); }.stu-impact-grid span { color: var(--cyan); font-family: var(--font-mono); font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }.project-content .stu-impact-grid h3 { margin: .5rem 0 .85rem; font-size: 1rem; line-height: 1.25; letter-spacing: -.02em; }.stu-impact-grid strong { color: #dbe9f7; font-size: .88rem; }
 .fastcheck-media #fastcheck-panel-publicacion img, .fastcheck-media #fastcheck-panel-analisis img { width: auto; max-width: 100%; margin-inline: auto; }
 .fastcheck-publication { width: min(100%, 260px); margin: 1.5rem auto 0; overflow: hidden; border: 1px solid var(--line); border-radius: .85rem; background: #0a1625; }
 .fastcheck-publication img { display: block; width: 100%; height: auto; }
@@ -122,7 +124,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
 .project-preview { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.5rem, 3vw, 2.4rem); border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(9,21,35,.72); }
 .project-preview h3 { margin: 0; font-size: clamp(1.7rem, 2.6vw, 2.25rem); letter-spacing: -.045em; line-height: 1.04; background: none; -webkit-text-fill-color: currentColor; }.project-preview:nth-child(1) h3 { color: #7de89b; }.project-preview:nth-child(2) h3 { color: #ffc05c; }
-.project-preview-wide { grid-column: 1 / -1; }.project-preview-olist h3 { color: #bc9dff; }
+.project-preview-wide { grid-column: 1 / -1; }.project-preview-olist h3 { color: #bc9dff; }.project-preview-stu h3 { color: #79b7ff; }
 .project-preview > p { min-height: 8rem; margin: 1rem 0 0; color: #c5d6e7; }
 .project-preview .architecture { justify-content: flex-start; margin: 1.75rem 0 1.5rem; }
 .project-button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: fit-content; margin-top: 0; padding: .7rem 1rem; border: 1px solid rgba(66,217,255,.35); border-radius: .65rem; background: rgba(66,217,255,.08); color: var(--cyan); font: inherit; font-weight: 800; cursor: pointer; transition: .2s; }
@@ -148,7 +150,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 640px) {
   .shell { width: min(100% - 1.35rem, 1120px); }.brand-copy { display: none; }.section { padding-block: 4.8rem; }
   .hero-copy h1 { font-size: clamp(2.8rem, 14vw, 4rem); }.hero-actions { align-items: stretch; }.hero-actions .button { flex: 1 1 100%; }.hero-visual { width: calc(100% - 1.1rem); margin-top: 1rem; }.portrait-frame { aspect-ratio: 1 / 1.08; }.contact-links a { max-width: 100%; }
-  .about-grid, .experience-card { grid-template-columns: 1fr; }.about-grid { gap: 1.5rem; }.project-media { padding-inline: 1.5rem; }.media-panel img { max-height: 260px; }.bigquery-captures { grid-template-columns: 1fr; }.case-grid { grid-template-columns: 1fr; }.architecture { justify-content: flex-start; }.project-title-row { display: grid; }.private-label { width: fit-content; }
+  .about-grid, .experience-card { grid-template-columns: 1fr; }.about-grid { gap: 1.5rem; }.project-media { padding-inline: 1.5rem; }.media-panel img { max-height: 260px; }.bigquery-captures, .stu-impact-grid { grid-template-columns: 1fr; }.case-grid { grid-template-columns: 1fr; }.architecture { justify-content: flex-start; }.project-title-row { display: grid; }.private-label { width: fit-content; }
   .site-footer { display: grid; text-align: center; }
 }
 

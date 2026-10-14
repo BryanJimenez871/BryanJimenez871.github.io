@@ -82,4 +82,19 @@ export const projects: Project[] = [
     technologies: ["Python", "Pandas", "Matplotlib", "Google Colab", "Validación de joins", "EDA"],
     links: [],
   },
+  {
+    id: "stu",
+    eyebrow: "Gestión de proyectos + mejora de procesos",
+    title: "Plan de mejora para la gestión de recursos TI en STU",
+    summary:
+      "Propuesta de mejora para una empresa de transporte urbano, basada en diagnóstico de procesos, diseño de iniciativas y evaluación de costos, beneficios y plazos de recuperación.",
+    context:
+      "STU requería oportunidades de mejora para la gestión de recursos informáticos y su operación, integrando una mirada técnica, económica y de procesos.",
+    contribution:
+      "Estructuré la metodología bajo BPMN, levanté información, formulé dos iniciativas de mejora y definí un modelo de negocio con herramientas de coordinación y control.",
+    result:
+      "La evaluación económica estimó la recuperación de la iniciativa de eficiencia operativa en el mes 22 y la de unificación de sistemas y seguridad durante el primer mes del año 1.",
+    technologies: ["BPMN", "Gestión de proyectos", "Modelo de negocio", "Evaluación económica", "Google Sheets"],
+    links: [],
+  },
 ];
