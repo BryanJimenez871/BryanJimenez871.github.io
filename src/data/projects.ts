@@ -67,4 +67,19 @@ export const projects: Project[] = [
     links: [],
     privateCode: true,
   },
+  {
+    id: "olist",
+    eyebrow: "Análisis exploratorio + calidad de datos",
+    title: "Puntualidad de entregas y satisfacción en Olist",
+    summary:
+      "Análisis de datos de e-commerce que relaciona el desempeño de entrega con las reseñas de clientes, mediante una tabla analítica validada y visualizaciones comparativas.",
+    context:
+      "El objetivo fue estudiar si la puntualidad de las entregas se asocia con la satisfacción de los clientes en el dataset público de Olist.",
+    contribution:
+      "Construí una tabla con una fila por pedido, agregando artículos y reseñas antes de los joins para evitar duplicaciones y distorsiones en las métricas.",
+    result:
+      "Las entregas posteriores a la fecha obtuvieron una reseña media de 2,27, frente a 4,29 en las entregas anticipadas; los gráficos permitieron comparar esta diferencia y la distribución de calificaciones.",
+    technologies: ["Python", "Pandas", "Matplotlib", "Google Colab", "Validación de joins", "EDA"],
+    links: [],
+  },
 ];
