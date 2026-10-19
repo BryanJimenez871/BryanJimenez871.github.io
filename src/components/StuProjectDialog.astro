@@ -23,7 +23,6 @@ const { project } = Astro.props as { project: Project };
         <div class="media-tabs" role="tablist" aria-label="Áreas del proyecto STU">
           <button id="stu-tab-metodologia" type="button" role="tab" aria-selected="true" aria-controls="stu-panel-metodologia" data-media-tab="stu-panel-metodologia">Metodología</button>
           <button id="stu-tab-modelo" type="button" role="tab" aria-selected="false" aria-controls="stu-panel-modelo" data-media-tab="stu-panel-modelo">Modelo de negocio</button>
-          <button id="stu-tab-impacto" type="button" role="tab" aria-selected="false" aria-controls="stu-panel-impacto" data-media-tab="stu-panel-impacto">Impacto económico</button>
         </div>
         <figure id="stu-panel-metodologia" class="media-panel" role="tabpanel" aria-labelledby="stu-tab-metodologia">
           <img src="/projects/stu-methodology.png" alt="Metodología de gestión del proyecto de mejora para STU" width="1200" height="725" loading="lazy" />
@@ -32,16 +31,6 @@ const { project } = Astro.props as { project: Project };
         <figure id="stu-panel-modelo" class="media-panel" role="tabpanel" aria-labelledby="stu-tab-modelo" hidden>
           <img src="/projects/stu-business-model.png" alt="Modelo de negocio propuesto para STU" width="864" height="648" loading="lazy" />
           <figcaption>Modelo de negocio que conecta propuesta de valor, recursos, operación y fuentes de ingreso.</figcaption>
-        </figure>
-        <figure id="stu-panel-impacto" class="media-panel stu-impact-panel" role="tabpanel" aria-labelledby="stu-tab-impacto" hidden>
-          <div class="stu-impact">
-            <p>Dos iniciativas evaluadas con costos, beneficios y período de recuperación proyectado.</p>
-            <div class="stu-impact-grid">
-              <article><span>Iniciativa 1</span><h3>Eficiencia operativa y puntualidad</h3><strong>Recuperación: mes 22</strong></article>
-              <article><span>Iniciativa 2</span><h3>Unificación de sistemas y seguridad</h3><strong>Recuperación: año 1 · mes 1</strong></article>
-            </div>
-          </div>
-          <figcaption>Resumen de la evaluación económica de las iniciativas priorizadas para STU.</figcaption>
         </figure>
       </section>
     </div>
