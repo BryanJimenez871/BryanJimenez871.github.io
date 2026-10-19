@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     id: "olist",
     eyebrow: "Análisis exploratorio + calidad de datos",
-    title: "Puntualidad de entregas y satisfacción en comercio electrónico",
+    title: "Puntualidad de entregas y satisfacción en e-commerce",
     summary:
       "Análisis de datos de e-commerce que relaciona el desempeño de entrega con las reseñas de clientes, mediante una tabla analítica validada y visualizaciones comparativas.",
     context:
