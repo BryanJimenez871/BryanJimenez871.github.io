@@ -4,21 +4,24 @@ import Layout from "../layouts/Layout.astro";
 import { projects } from "../data/projects";
 import StuProjectDialog from "../components/StuProjectDialog.astro";
 import StuProjectPreview from "../components/StuProjectPreview.astro";
+import AwsProjectPreview from "../components/AwsProjectPreview.astro";
+import AwsProjectDialog from "../components/AwsProjectDialog.astro";
 
 const techTools = [
-  ["Docker", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"],
-  ["Airflow", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg"],
-  ["BigQuery", "https://cdn.simpleicons.org/googlebigquery/669DF6"],
-  ["Power BI", "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"],
-  ["Python", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"],
-  ["PostgreSQL", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"],
-  ["Linux", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"],
-  ["Pandas", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"],
-  ["FastAPI", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"],
+  ["Docker", "/icons/docker.svg"],
+  ["Airflow", "/icons/airflow.svg"],
+  ["BigQuery", "/icons/bigquery.svg"],
+  ["Power BI", "/icons/power-bi.svg"],
+  ["Python", "/icons/python.svg"],
+  ["PostgreSQL", "/icons/postgresql.svg"],
+  ["Linux", "/icons/linux.svg"],
+  ["Pandas", "/icons/pandas.svg"],
+  ["FastAPI", "/icons/fastapi.svg"],
+  ["AWS", "/aws-icon.png"],
 ];
 ---
 
-<Layout title="Bryan Jiménez | Backend & Data Engineering" description="Portafolio de Bryan Jiménez: desarrollo backend, automatización, procesos ETL e ingeniería de datos con Python, FastAPI, Airflow y BigQuery.">
+<Layout title="Bryan Jimenez | Backend & Data Engineering" description="Portafolio de Bryan Jimenez: desarrollo backend, automatización, procesos ETL e ingeniería de datos con Python, FastAPI, Airflow y BigQuery.">
   <main id="contenido">
     <section id="inicio" class="hero shell">
       <div class="hero-copy reveal">
@@ -33,10 +36,11 @@ const techTools = [
 
     <section id="proyectos" class="section projects-section">
       <div class="shell">
-        <div class="section-heading reveal"><h2>Proyectos destacados.</h2></div>
+        <div class="section-heading reveal"><h2>Proyectos destacados</h2></div>
         <div class="projects-grid">
-          <article class="project-preview reveal" aria-labelledby="habitos-title"><h3 id="habitos-title">Arquitectura de datos: de PostgreSQL a BigQuery</h3><p>{projects[0].summary}</p><div class="architecture" aria-label="Ciclo del proyecto Hábitos Personales"><span>PySide6</span><ArrowRight size={15} /><span>FastAPI</span><ArrowRight size={15} /><span>PostgreSQL</span><ArrowRight size={15} /><span>Airflow</span><ArrowRight size={15} /><span>BigQuery</span></div><button class="project-button" type="button" data-open-project="habitos">Ver proyecto <ArrowRight size={17} /></button></article>
-          <article class="project-preview reveal" aria-labelledby="fastcheck-title"><h3 id="fastcheck-title">{projects[1].title}</h3><p>{projects[1].summary}</p><div class="architecture" aria-label="Ciclo del proyecto FastCheck"><span>Web Scraping</span><ArrowRight size={15} /><span>API de ChatGPT</span><ArrowRight size={15} /><span>ETL</span><ArrowRight size={15} /><span>Dataset validado</span></div><button class="project-button" type="button" data-open-project="fastcheck">Ver proyecto <ArrowRight size={17} /></button></article>
+          <AwsProjectPreview project={projects[4]} />
+          <article class="project-preview project-preview-habitos reveal" aria-labelledby="habitos-title"><h3 id="habitos-title">Arquitectura de datos: de PostgreSQL a BigQuery</h3><p>{projects[0].summary}</p><div class="architecture" aria-label="Ciclo del proyecto Hábitos Personales"><span>PySide6</span><ArrowRight size={15} /><span>FastAPI</span><ArrowRight size={15} /><span>PostgreSQL</span><ArrowRight size={15} /><span>Airflow</span><ArrowRight size={15} /><span>BigQuery</span></div><button class="project-button" type="button" data-open-project="habitos">Ver proyecto <ArrowRight size={17} /></button></article>
+          <article class="project-preview project-preview-fastcheck reveal" aria-labelledby="fastcheck-title"><h3 id="fastcheck-title">{projects[1].title}</h3><p>{projects[1].summary}</p><div class="architecture" aria-label="Ciclo del proyecto FastCheck"><span>Web Scraping</span><ArrowRight size={15} /><span>API de ChatGPT</span><ArrowRight size={15} /><span>ETL</span><ArrowRight size={15} /><span>Dataset validado</span></div><button class="project-button" type="button" data-open-project="fastcheck">Ver proyecto <ArrowRight size={17} /></button></article>
           <article class="project-preview project-preview-olist project-preview-wide reveal" aria-labelledby="olist-title"><h3 id="olist-title">{projects[2].title}</h3><p>{projects[2].summary}</p><div class="architecture" aria-label="Flujo del proyecto Olist"><span>Pedidos</span><ArrowRight size={15} /><span>Granularidad</span><ArrowRight size={15} /><span>Joins</span><ArrowRight size={15} /><span>Visualizaciones</span></div><button class="project-button" type="button" data-open-project="olist">Ver proyecto <ArrowRight size={17} /></button></article>
           <StuProjectPreview project={projects[3]} />
         </div>
@@ -51,6 +55,7 @@ const techTools = [
   <dialog id="olist-dialog" class="project-dialog" aria-labelledby="olist-dialog-title"><div class="dialog-panel"><button class="dialog-close" type="button" data-close-project aria-label="Cerrar proyecto"><X size={20} /></button><div class="project-content"><p class="eyebrow">{projects[2].eyebrow}</p><h2 id="olist-dialog-title">{projects[2].title}</h2><div class="case-grid"><div><span>Contexto</span><p>{projects[2].context}</p></div><div><span>Mi aporte</span><p>{projects[2].contribution}</p></div><div><span>Resultado</span><p>{projects[2].result}</p></div></div><ul class="tags" aria-label="Tecnologías utilizadas">{projects[2].technologies.map((technology) => <li>{technology}</li>)}</ul><section class="project-media olist-media" aria-label="Visualizaciones del análisis Olist"><div class="media-tabs" role="tablist" aria-label="Gráficos del análisis Olist"><button id="olist-tab-promedio" type="button" role="tab" aria-selected="true" aria-controls="olist-panel-promedio" data-media-tab="olist-panel-promedio">Puntaje promedio</button><button id="olist-tab-estrellas" type="button" role="tab" aria-selected="false" aria-controls="olist-panel-estrellas" data-media-tab="olist-panel-estrellas">Distribución de estrellas</button><button id="olist-tab-muestra" type="button" role="tab" aria-selected="false" aria-controls="olist-panel-muestra" data-media-tab="olist-panel-muestra">Peso de la muestra</button></div><figure id="olist-panel-promedio" class="media-panel" role="tabpanel" aria-labelledby="olist-tab-promedio"><img src="/projects/olist-average-score.png" alt="Puntaje promedio de reseña según puntualidad de la entrega" width="528" height="394" loading="lazy" /><figcaption>Las entregas posteriores a la fecha registraron una reseña media de 2,27, frente a 4,29 en las entregas anticipadas.</figcaption></figure><figure id="olist-panel-estrellas" class="media-panel" role="tabpanel" aria-labelledby="olist-tab-estrellas" hidden><img src="/projects/olist-rating-distribution.png" alt="Distribución de estrellas según puntualidad de la entrega" width="631" height="404" loading="lazy" /><figcaption>Las entregas tardías concentran una proporción mayor de reseñas de una estrella.</figcaption></figure><figure id="olist-panel-muestra" class="media-panel" role="tabpanel" aria-labelledby="olist-tab-muestra" hidden><img src="/projects/olist-sample-weight.png" alt="Peso de los grupos de puntualidad dentro de la muestra de pedidos" width="537" height="408" loading="lazy" /><figcaption>El 92% de los pedidos se entregó antes de la fecha; los grupos minoritarios requieren una interpretación cuidadosa.</figcaption></figure></section></div></div></dialog>
 
   <StuProjectDialog project={projects[3]} />
+  <AwsProjectDialog project={projects[4]} />
 
   <script>
     const projectMedia = document.querySelector("#habitos-dialog .project-media"); document.querySelector("#habitos-dialog .project-links")?.before(projectMedia!);

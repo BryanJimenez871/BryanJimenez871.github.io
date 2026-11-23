@@ -1,0 +1,15 @@
+---
+import { ArrowRight } from "@lucide/astro";
+import type { Project } from "../data/projects";
+
+const { project } = Astro.props as { project: Project };
+---
+
+<article class="project-preview project-preview-aws reveal" aria-labelledby="aws-title">
+  <h3 id="aws-title">{project.title}</h3>
+  <p>{project.summary}</p>
+  <div class="architecture" aria-label="Flujo del proyecto AWS">
+    <span>CloudFront + S3</span><ArrowRight size={15} /><span>Lambda</span><ArrowRight size={15} /><span>RDS</span><ArrowRight size={15} /><span>Airflow</span><ArrowRight size={15} /><span>Athena</span>
+  </div>
+  <button class="project-button" type="button" data-open-project="aws">Ver proyecto <ArrowRight size={17} /></button>
+</article>

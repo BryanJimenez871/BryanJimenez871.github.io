@@ -97,4 +97,19 @@ export const projects: Project[] = [
     technologies: ["BPMN", "Gestión de proyectos", "Modelo de negocio", "Análisis de procesos"],
     links: [],
   },
+  {
+    id: "aws",
+    eyebrow: "Arquitectura modular + ingeniería de datos en AWS",
+    title: "Arquitectura modular de datos en AWS",
+    summary:
+      "Plataforma para una escuela de conducción: publica una web con CloudFront y S3, ingiere CSV con Lambda y RDS PostgreSQL, transforma datos con Airflow y permite analizarlos en Athena.",
+    context:
+      "El proyecto necesitaba una web pública y un flujo de datos que separara la operación diaria del análisis, con servicios conectados de forma segura dentro de AWS.",
+    contribution:
+      "Diseñé la arquitectura por componentes: CloudFront y S3 para la web, Lambda para validar e ingresar CSV en RDS, y Airflow en EC2 para generar datos Parquet en S3. Definí las tablas del catálogo y las consultas SQL en Athena.",
+    result:
+      "Validé la ingesta de alumnos, vehículos, pagos y clases en PostgreSQL; el DAG generó capas raw y cleaned_parquet, y Athena consultó cuatro tablas particionadas y reportes de negocio.",
+    technologies: ["AWS", "CloudFront", "S3", "Lambda", "RDS PostgreSQL", "EC2", "Docker", "Apache Airflow", "Parquet", "Glue Data Catalog", "Athena", "VPC", "IAM"],
+    links: [],
+  },
 ];

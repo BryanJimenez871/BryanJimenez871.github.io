@@ -1,0 +1,58 @@
+---
+import { X } from "@lucide/astro";
+import type { Project } from "../data/projects";
+
+const { project } = Astro.props as { project: Project };
+
+const groups = [
+  { id: "arquitectura", label: "Arquitectura", images: [
+    { file: "aws_opcionB.png", alt: "Diagrama de la arquitectura: CSV en S3, Lambda, RDS PostgreSQL, Airflow en EC2, Parquet en S3, Glue y Athena dentro de una VPC", caption: "Vista completa del flujo y de los controles de red, permisos y configuración." },
+  ] },
+  { id: "web", label: "Web y S3", images: [
+    { file: "aws-cloudfront.png", alt: "Diagrama del usuario accediendo a CloudFront, que sirve el sitio web estático desde un bucket S3 privado mediante OAC", caption: "CloudFront entrega el sitio público sin exponer el bucket S3, protegido mediante Origin Access Control (OAC)." },
+    { file: "cloudfront_s3-web.png", alt: "Landing pública de la escuela de conducción servida desde CloudFront", caption: "Landing estática publicada mediante CloudFront." },
+    { file: "cloudfront_s3-s3_permisos.png", alt: "Configuración de S3 con bloqueo de acceso público activado", caption: "El bucket de origen mantiene bloqueado el acceso público directo." },
+  ] },
+  { id: "ingesta", label: "Lambda y RDS", images: [
+    { file: "lambda-ingesta_test_exito.png", alt: "Prueba exitosa de Lambda activada por S3 con resumen de registros insertados", caption: "S3 activa Lambda al recibir el manifiesto; la prueba confirma la ingesta validada." },
+    { file: "lambda-ingesta_test_exitoEC2.png", alt: "Consulta PostgreSQL que muestra tres alumnos, dos vehículos, tres pagos y tres clases", caption: "Comprobación en PostgreSQL: 3 alumnos, 2 vehículos, 3 pagos y 3 clases." },
+  ] },
+  { id: "airflow", label: "Airflow y data lake", images: [
+    { file: "ec2-airflow.png", alt: "Apache Airflow desplegado con Docker en EC2", caption: "Airflow se ejecuta en EC2 mediante Docker; PostgreSQL operacional está en RDS." },
+    { file: "ec2-comprobacion_airflow.png", alt: "Resultado exitoso del DAG con extracción y transformación de cuatro tablas", caption: "El DAG extrae snapshots desde RDS y genera datos limpios en Parquet." },
+    { file: "ec2-s3_airflow.png", alt: "Estructura del data lake en S3 con landing, raw, cleaned_parquet, quality y rejected", caption: "Data lake organizado en landing, raw, cleaned_parquet, quality y rejected." },
+  ] },
+  { id: "athena", label: "Athena", images: [
+    { file: "athena-tables.png", alt: "Cuatro tablas particionadas disponibles para Athena", caption: "Cuatro tablas externas particionadas, definidas en Glue Data Catalog con SQL." },
+    { file: "athena-querys2_datos_lake.png", alt: "Consulta SQL relacional exitosa sobre datos del lake", caption: "Consulta con joins entre datos operacionales transformados en el lake." },
+    { file: "athena-querys1.png", alt: "Consulta de pagos e ingresos agrupados por método en Athena", caption: "Consulta de negocio: cantidad de pagos e ingresos por método de pago." },
+  ] },
+];
+---
+
+<dialog id="aws-dialog" class="project-dialog" aria-labelledby="aws-dialog-title">
+  <div class="dialog-panel">
+    <button class="dialog-close" type="button" data-close-project aria-label="Cerrar proyecto"><X size={20} /></button>
+    <div class="project-content">
+      <p class="eyebrow">{project.eyebrow}</p>
+      <h2 id="aws-dialog-title">{project.title}</h2>
+      <div class="case-grid">
+        <div><span>Contexto</span><p>{project.context}</p></div>
+        <div><span>Mi aporte</span><p>{project.contribution}</p></div>
+        <div><span>Resultado</span><p>{project.result}</p></div>
+      </div>
+      <ul class="tags" aria-label="Tecnologías utilizadas">{project.technologies.map((technology) => <li>{technology}</li>)}</ul>
+      <section class="project-media aws-media" aria-label="Evidencias del proyecto AWS">
+        <div class="media-tabs" role="tablist" aria-label="Etapas del proyecto AWS">
+          {groups.map((group, index) => <button id={`aws-tab-${group.id}`} type="button" role="tab" aria-selected={index === 0 ? "true" : "false"} aria-controls={`aws-panel-${group.id}`} data-media-tab={`aws-panel-${group.id}`}>{group.label}</button>)}
+        </div>
+        {groups.map((group, index) => <div id={`aws-panel-${group.id}`} class="media-panel aws-panel" role="tabpanel" aria-labelledby={`aws-tab-${group.id}`} hidden={index !== 0}>
+          {group.images.map((item) => <figure>
+            <img src={`/projects/aws/${item.file}`} alt={item.alt} loading="lazy" />
+            <figcaption>{item.caption}</figcaption>
+          </figure>)}
+        </div>)}
+      </section>
+    </div>
+  </div>
+</dialog>
